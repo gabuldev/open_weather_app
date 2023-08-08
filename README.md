@@ -1,16 +1,25 @@
-# open_weather_app
+# About
+The focus of this project is use of the API [OpenWeather](https://openweathermap.org) to create a Flutter App
+with 2 screens. Where the first screen render the current weather the cities below:
 
-A new Flutter project.
+- Silverstone, UK
+- São Paulo, Brazil
+- Melbourne, Australia
+- Monte Carlo, Monaco
 
-## Getting Started
+And the second screen have a forecast for the 5 next days when you click in a city.
 
-This project is a starting point for a Flutter application.
+# Specs
 
-A few resources to get you started if this is your first Flutter project:
+### App
+- Running Android or iOS
+- Work offline
+- Support multiple resolutions and sizes
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### First Screen
+- The list of cities need to display a name
+- Search field in the top
+- Current Weather highlighted on screen
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Second Screen
+- Forecst for the next 5 days
