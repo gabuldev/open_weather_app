@@ -24,8 +24,12 @@ void main() {
       when(() => client.get(
               path: "/data/2.5/weather",
               queryParams: {'lat': location.lat, 'lon': location.lon}))
-          .thenAnswer((_) => Future.value(HttpStatus(
-              success: (data: ModelsMock.weather(), statusCode: 201))));
+          .thenAnswer((_) => Future.value(HttpStatus(success: (
+                data: {
+                  "weather": [ModelsMock.weather()]
+                },
+                statusCode: 201
+              ))));
       final response = await datasource.getCurrentWeather(
           lat: location.lat, lon: location.lon);
 

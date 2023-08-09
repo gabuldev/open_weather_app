@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 import 'package:open_weather_app/modules/weather/domain/entities/city_entity.dart';
-import 'package:open_weather_app/modules/weather/domain/entities/weather_entity.dart';
-import 'package:open_weather_app/modules/weather/domain/usecases/weather_by_location_usecase.dart';
-import 'package:open_weather_app/modules/weather/external/datasources/weather_remote_datasource.dart';
-import 'package:open_weather_app/modules/weather/infra/repositories/weather_repository_impl.dart';
-import 'package:open_weather_app/shared/services/custom_dio/custom_dio.dart';
-import 'package:open_weather_app/shared/services/http/http_dio_impl.dart';
 
 import 'city_controller.dart';
 
@@ -23,11 +18,7 @@ class CityWidget extends StatefulWidget {
 }
 
 class _CityWidgetState extends State<CityWidget> {
-  final controller = CityController(
-      weatherByLocationUseCase: WeatherByLocationUseCase(
-          repository: WeatherRepositoryImpl(
-              datasource: WeatherRemoteDatasourceImpl(
-                  client: HTTPDioImpl(dio: getDioInstance())))));
+  final controller = GetIt.I.get<CityController>();
 
   @override
   void initState() {
@@ -42,13 +33,15 @@ class _CityWidgetState extends State<CityWidget> {
       title: Text(
         "${widget.city.name} - ${widget.city.state},  ${widget.city.country},",
       ),
-      subtitle: ValueListenableBuilder<WeatherEntity?>(
+      subtitle: ValueListenableBuilder<CityStatus>(
           valueListenable: controller.weatherNotifier,
           builder: (_, value, __) {
-            if (value != null) {
-              return Text("${value.main} - ${value.description}");
+            if (value.data != null) {
+              return Text("${value.data!.main} - ${value.data!.description}");
+            } else if (value.error != null) {
+              return Text("${value.error}");
             } else {
-              return const SizedBox.shrink();
+              return const Text("Loading...");
             }
           }),
       trailing: IconButton(
