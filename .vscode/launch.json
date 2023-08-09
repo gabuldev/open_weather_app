@@ -7,7 +7,11 @@
         {
             "name": "open_weather_app",
             "request": "launch",
-            "type": "dart"
+            "type": "dart",
+            "args": [
+                "--dart-define=BASE_URL=http://api.openweathermap.org",
+                "--dart-define=APPID=f551d279b4f5f635ca525c6024fcdc26"
+            ]
         },
         {
             "name": "Run All Test",

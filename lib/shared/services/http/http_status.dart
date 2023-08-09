@@ -1,6 +1,6 @@
 typedef JSON = Map<String, dynamic>;
 
-typedef Response = ({Object data, int? statusCode});
+typedef Success = ({Object? data, int? statusCode});
 
 typedef Failure = ({
   Object? exception,
@@ -10,11 +10,11 @@ typedef Failure = ({
 });
 
 class HttpStatus {
-  final Response? response;
+  final Success? success;
   final Failure? failure;
 
   HttpStatus({
-    this.response,
+    this.success,
     this.failure,
   });
 }

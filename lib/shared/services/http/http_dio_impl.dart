@@ -16,7 +16,7 @@ class HTTPDioImpl implements HTTP {
       final response = await dio.get(path,
           queryParameters: queryParams, options: Options(headers: headers));
       return HttpStatus(
-          response: (data: response.data, statusCode: response.statusCode));
+          success: (data: response.data, statusCode: response.statusCode));
     } on DioException catch (e) {
       return HttpStatus(failure: (
         exception: e,
@@ -46,7 +46,7 @@ class HTTPDioImpl implements HTTP {
           queryParameters: queryParams,
           options: Options(headers: headers));
       return HttpStatus(
-          response: (data: response.data, statusCode: response.statusCode));
+          success: (data: response.data, statusCode: response.statusCode));
     } on DioException catch (e) {
       return HttpStatus(failure: (
         exception: e,
@@ -77,7 +77,7 @@ class HTTPDioImpl implements HTTP {
           queryParameters: queryParams,
           options: Options(headers: headers));
       return HttpStatus(
-          response: (data: response.data, statusCode: response.statusCode));
+          success: (data: response.data, statusCode: response.statusCode));
     } on DioException catch (e) {
       return HttpStatus(failure: (
         exception: e,
@@ -108,7 +108,7 @@ class HTTPDioImpl implements HTTP {
           queryParameters: queryParams,
           options: Options(headers: headers));
       return HttpStatus(
-          response: (data: response.data, statusCode: response.statusCode));
+          success: (data: response.data, statusCode: response.statusCode));
     } on DioException catch (e) {
       return HttpStatus(failure: (
         exception: e,

@@ -19,15 +19,15 @@ void main() {
   group("HTTPDioImpl Test", () {
     test("Method - GET call API with success", () async {
       final req = await http.get(path: "/posts");
-      expect(req.response, isNotNull);
-      expect(req.response?.data, const TypeMatcher<List<dynamic>>());
-      expect(req.response?.statusCode, equals(200));
+      expect(req.success, isNotNull);
+      expect(req.success?.data, const TypeMatcher<List<dynamic>>());
+      expect(req.success?.statusCode, equals(200));
       expect(req.failure, isNull);
     });
 
     test("Method - GET call API with failure", () async {
       final req = await http.get(path: "/postss");
-      expect(req.response, isNull);
+      expect(req.success, isNull);
       expect(req.failure?.statusCode, equals(404));
       expect(req.failure, isNotNull);
     });
@@ -38,9 +38,9 @@ void main() {
         path: "/posts",
         body: post,
       );
-      expect(req.response, isNotNull);
-      expect(req.response?.data, const TypeMatcher<JSON>());
-      expect(req.response?.statusCode, equals(201));
+      expect(req.success, isNotNull);
+      expect(req.success?.data, const TypeMatcher<JSON>());
+      expect(req.success?.statusCode, equals(201));
       expect(req.failure, isNull);
     });
 
@@ -50,7 +50,7 @@ void main() {
         path: "/postss",
         body: post,
       );
-      expect(req.response, isNull);
+      expect(req.success, isNull);
       expect(req.failure?.statusCode, equals(404));
       expect(req.failure, isNotNull);
     });
@@ -61,9 +61,9 @@ void main() {
         path: "/posts/1",
         body: post,
       );
-      expect(req.response, isNotNull);
-      expect(req.response?.data, const TypeMatcher<JSON>());
-      expect(req.response?.statusCode, equals(200));
+      expect(req.success, isNotNull);
+      expect(req.success?.data, const TypeMatcher<JSON>());
+      expect(req.success?.statusCode, equals(200));
       expect(req.failure, isNull);
     });
 
@@ -73,7 +73,7 @@ void main() {
         path: "/postss",
         body: post,
       );
-      expect(req.response, isNull);
+      expect(req.success, isNull);
       expect(req.failure?.statusCode, equals(404));
       expect(req.failure, isNotNull);
     });
@@ -84,9 +84,9 @@ void main() {
         path: "/posts/1",
         body: post,
       );
-      expect(req.response, isNotNull);
-      expect(req.response?.data, const TypeMatcher<JSON>());
-      expect(req.response?.statusCode, equals(200));
+      expect(req.success, isNotNull);
+      expect(req.success?.data, const TypeMatcher<JSON>());
+      expect(req.success?.statusCode, equals(200));
       expect(req.failure, isNull);
     });
 
@@ -96,7 +96,7 @@ void main() {
         path: "/postss",
         body: post,
       );
-      expect(req.response, isNull);
+      expect(req.success, isNull);
       expect(req.failure?.statusCode, equals(404));
       expect(req.failure, isNotNull);
     });
