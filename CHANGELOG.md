@@ -1,4 +1,5 @@
 # dev
+ - Add GetIt
  - Add Weather Page
  - Add client Http
  - Add client Dio
