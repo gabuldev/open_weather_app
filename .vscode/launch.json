@@ -1,0 +1,23 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "open_weather_app",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--dart-define=BASE_URL=http://api.openweathermap.org",
+                "--dart-define=APPID=f551d279b4f5f635ca525c6024fcdc26"
+            ]
+        },
+        {
+            "name": "Run All Test",
+            "request": "launch",
+            "type": "dart",
+            "program": "test",
+        },
+    ]
+}
